@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["RGB","RGBA"],
+  "author": "Miguel Machado mmachado53@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "documentation": "^12.1.4"
