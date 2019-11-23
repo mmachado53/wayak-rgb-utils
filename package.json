@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "makeDocu": "documentation build index.js -f md > README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmachado53/wayak-rgb-utils"
   },
   "keywords": ["RGB","RGBA"],
   "author": "Miguel Machado mmachado53@gmail.com",
