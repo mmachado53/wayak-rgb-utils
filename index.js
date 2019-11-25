@@ -5,8 +5,14 @@
 
 
 /**
+ *
  * Transform integer number like 0xff0000 to rgb object like {r:255,g:0,b:0} inverse to RGBToNumber.
+ * @function numberToRGB
+ * @static
  * @param {integer} number - rgb color.
+ * @example
+ * // returns {r:255,g:0,b:0}
+ * RGBUtils.numberToRGB(0xff0000);
  * @returns {object} a object with r,g,b props
  */
 const numberToRGB = function (number) {
@@ -18,10 +24,15 @@ const numberToRGB = function (number) {
 
 /**
  * Transform rgb values to integer number like 0xff0000 inverse to numberToRGB.
+ * @function RGBToNumber
+ * @static
  * @param {number} r - red value (0-255).
  * @param {number} g - green value (0-255).
  * @param {number} b - blue value (0-255).
  * @returns {UInt32} a color in uInt32 number like 0xff0000
+ * @example
+ * // returns 0xff0000
+ * RGBUtils.RGBToNumber(255,0,0);
  */
 const RGBToNumber = function (r, g, b) {
     return ((r << 16) | (g << 8) | (b))
@@ -30,8 +41,13 @@ const RGBToNumber = function (r, g, b) {
 
 /**
  * Transform uInt32 number like 0xff0000ff to rgb object like {r:255,g:0,b:0,a:255} inverse to RGBAToNumber.
+ * @function numberToRGBA
+ * @static
  * @param {uInt32} number - rgba color.
  * @returns {Object} a object with r,g,b,a props
+ * @example
+ * // returns {r:255,g:0,b:0,a:255}
+ * RGBUtils.numberToRGBA(0xff0000ff);
  */
 const numberToRGBA =  (number)=> {
     const a = number >> 24 & 0xFF
@@ -43,11 +59,16 @@ const numberToRGBA =  (number)=> {
 
 /**
  * Transform rgba values to uInt32 number like 0xff0000ff inverse to RGBAToNumber.
+ * @function RGBAToNumber
+ * @static
  * @param {number} r - red value (0-255).
  * @param {number} g - green value (0-255).
  * @param {number} b - blue value (0-255).
  * @param {number} a - alpha value (0-255).
  * @returns {UInt32} a color in uInt32 number like 0xff0000ff
+ * @example
+ * // returns 0xff0000ff
+ * RGBUtils.RGBAToNumber(255,0,0,255);
  */
 const RGBAToNumber =  (r, g, b, a)=> {
     /* cast to 255 */
@@ -65,8 +86,16 @@ const RGBAToNumber =  (r, g, b, a)=> {
 
 /**
  * Transform a string value like '0xff0000ff' or '#ff0000'  in uInt32 number like 0xff0000ff.
+ * @function stringToRGBANumber
+ * @static
  * @param {String} string - color string.
  * @returns {UInt32} a color in uInt32 number like 0xff0000ff
+ * @example
+ * // returns 0xff0000
+ * RGBUtils.stringToRGBANumber('#ff0000');
+ * @example
+ * // returns 0xff0000ff
+ * RGBUtils.stringToRGBANumber('ff0000ff');
  */
 const stringToRGBANumber =  (string)=> {
     string = string.replace("#","").replace("0x","")
@@ -78,8 +107,16 @@ const stringToRGBANumber =  (string)=> {
 
 /**
  * Transform a string value like '0xff0000ff' or '#ff0000' in a rgba object like {r:255,g:0,b:0,a:255}.
+ * @function stringToRGBAObject
+ * @static
  * @param {string} string - color string.
  * @returns {object} a object with r,g,b,a props
+ * @example
+ * // returns {r:255,g:0,b:0,a:255}
+ * RGBUtils.stringToRGBAObject('#ff0000');
+ * @example
+ * // returns {r:255,g:0,b:0,a:255}
+ * RGBUtils.stringToRGBAObject('ff0000ff');
  */
 const stringToRGBAObject = (string)=>{
     const number = stringToRGBANumber(string)
@@ -89,6 +126,8 @@ const stringToRGBAObject = (string)=>{
 }
 /**
  * return the distance between two rgb objects
+ * @function stringToRGBAObject
+ * @static
  * @param {object} rgb1 - color object like {r:255,g:0,b:0}.
  * @param {number} rgb1.r - red value (0-255).
  * @param {number} rgb1.g - green value (0-255).
@@ -98,6 +137,9 @@ const stringToRGBAObject = (string)=>{
  * @param {number} rgb2.g - green value (0-255).
  * @param {number} rgb2.b - blue value (0-255).
  * @returns {number} distance
+ * @example
+ * // returns 360.62445840513925
+ * RGBUtils.RGBDistance({r:255,g:0,b:0},{r:0,g:0,b:255});
  */
 const RGBDistance = (rgb1, rgb2)=>{
     /* like a 3d distance */

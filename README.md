@@ -5,18 +5,25 @@
 -   [RGBUtils][1]
 -   [numberToRGB][2]
     -   [Parameters][3]
--   [RGBToNumber][4]
-    -   [Parameters][5]
--   [numberToRGBA][6]
-    -   [Parameters][7]
--   [RGBAToNumber][8]
+    -   [Examples][4]
+-   [RGBToNumber][5]
+    -   [Parameters][6]
+    -   [Examples][7]
+-   [numberToRGBA][8]
     -   [Parameters][9]
--   [stringToRGBANumber][10]
-    -   [Parameters][11]
--   [stringToRGBAObject][12]
-    -   [Parameters][13]
--   [RGBDistance][14]
+    -   [Examples][10]
+-   [RGBAToNumber][11]
+    -   [Parameters][12]
+    -   [Examples][13]
+-   [stringToRGBANumber][14]
     -   [Parameters][15]
+    -   [Examples][16]
+-   [stringToRGBAObject][17]
+    -   [Parameters][18]
+    -   [Examples][19]
+-   [stringToRGBAObject][20]
+    -   [Parameters][21]
+    -   [Examples][22]
 
 ## RGBUtils
 
@@ -28,7 +35,14 @@ Transform integer number like 0xff0000 to rgb object like {r:255,g:0,b:0} invers
 
 -   `number` **integer** rgb color.
 
-Returns **[object][16]** a object with r,g,b props
+### Examples
+
+```javascript
+// returns {r:255,g:0,b:0}
+RGBUtils.numberToRGB(0xff0000);
+```
+
+Returns **[object][23]** a object with r,g,b props
 
 ## RGBToNumber
 
@@ -36,9 +50,16 @@ Transform rgb values to integer number like 0xff0000 inverse to numberToRGB.
 
 ### Parameters
 
--   `r` **[number][17]** red value (0-255).
--   `g` **[number][17]** green value (0-255).
--   `b` **[number][17]** blue value (0-255).
+-   `r` **[number][24]** red value (0-255).
+-   `g` **[number][24]** green value (0-255).
+-   `b` **[number][24]** blue value (0-255).
+
+### Examples
+
+```javascript
+// returns 0xff0000
+RGBUtils.RGBToNumber(255,0,0);
+```
 
 Returns **UInt32** a color in uInt32 number like 0xff0000
 
@@ -50,7 +71,14 @@ Transform uInt32 number like 0xff0000ff to rgb object like {r:255,g:0,b:0,a:255}
 
 -   `number` **uInt32** rgba color.
 
-Returns **[Object][16]** a object with r,g,b,a props
+### Examples
+
+```javascript
+// returns {r:255,g:0,b:0,a:255}
+RGBUtils.numberToRGBA(0xff0000ff);
+```
+
+Returns **[Object][23]** a object with r,g,b,a props
 
 ## RGBAToNumber
 
@@ -58,10 +86,17 @@ Transform rgba values to uInt32 number like 0xff0000ff inverse to RGBAToNumber.
 
 ### Parameters
 
--   `r` **[number][17]** red value (0-255).
--   `g` **[number][17]** green value (0-255).
--   `b` **[number][17]** blue value (0-255).
--   `a` **[number][17]** alpha value (0-255).
+-   `r` **[number][24]** red value (0-255).
+-   `g` **[number][24]** green value (0-255).
+-   `b` **[number][24]** blue value (0-255).
+-   `a` **[number][24]** alpha value (0-255).
+
+### Examples
+
+```javascript
+// returns 0xff0000ff
+RGBUtils.RGBAToNumber(255,0,0,255);
+```
 
 Returns **UInt32** a color in uInt32 number like 0xff0000ff
 
@@ -71,7 +106,19 @@ Transform a string value like '0xff0000ff' or '#ff0000'  in uInt32 number like 0
 
 ### Parameters
 
--   `string` **[String][18]** color string.
+-   `string` **[String][25]** color string.
+
+### Examples
+
+```javascript
+// returns 0xff0000
+RGBUtils.stringToRGBANumber('#ff0000');
+```
+
+```javascript
+// returns 0xff0000ff
+RGBUtils.stringToRGBANumber('ff0000ff');
+```
 
 Returns **UInt32** a color in uInt32 number like 0xff0000ff
 
@@ -81,26 +128,45 @@ Transform a string value like '0xff0000ff' or '#ff0000' in a rgba object like {r
 
 ### Parameters
 
--   `string` **[string][18]** color string.
+-   `string` **[string][25]** color string.
 
-Returns **[object][16]** a object with r,g,b,a props
+### Examples
 
-## RGBDistance
+```javascript
+// returns {r:255,g:0,b:0,a:255}
+RGBUtils.stringToRGBAObject('#ff0000');
+```
+
+```javascript
+// returns {r:255,g:0,b:0,a:255}
+RGBUtils.stringToRGBAObject('ff0000ff');
+```
+
+Returns **[object][23]** a object with r,g,b,a props
+
+## stringToRGBAObject
 
 return the distance between two rgb objects
 
 ### Parameters
 
--   `rgb1` **[object][16]** color object like {r:255,g:0,b:0}.
-    -   `rgb1.r` **[number][17]** red value (0-255).
-    -   `rgb1.g` **[number][17]** green value (0-255).
-    -   `rgb1.b` **[number][17]** blue value (0-255).
--   `rgb2` **[object][16]** color object like {r:255,g:0,b:0}.
-    -   `rgb2.r` **[number][17]** red value (0-255).
-    -   `rgb2.g` **[number][17]** green value (0-255).
-    -   `rgb2.b` **[number][17]** blue value (0-255).
+-   `rgb1` **[object][23]** color object like {r:255,g:0,b:0}.
+    -   `rgb1.r` **[number][24]** red value (0-255).
+    -   `rgb1.g` **[number][24]** green value (0-255).
+    -   `rgb1.b` **[number][24]** blue value (0-255).
+-   `rgb2` **[object][23]** color object like {r:255,g:0,b:0}.
+    -   `rgb2.r` **[number][24]** red value (0-255).
+    -   `rgb2.g` **[number][24]** green value (0-255).
+    -   `rgb2.b` **[number][24]** blue value (0-255).
 
-Returns **[number][17]** distance
+### Examples
+
+```javascript
+// returns 360.62445840513925
+RGBUtils.RGBDistance({r:255,g:0,b:0},{r:0,g:0,b:255});
+```
+
+Returns **[number][24]** distance
 
 [1]: #rgbutils
 
@@ -108,32 +174,46 @@ Returns **[number][17]** distance
 
 [3]: #parameters
 
-[4]: #rgbtonumber
+[4]: #examples
 
-[5]: #parameters-1
+[5]: #rgbtonumber
 
-[6]: #numbertorgba
+[6]: #parameters-1
 
-[7]: #parameters-2
+[7]: #examples-1
 
-[8]: #rgbatonumber
+[8]: #numbertorgba
 
-[9]: #parameters-3
+[9]: #parameters-2
 
-[10]: #stringtorgbanumber
+[10]: #examples-2
 
-[11]: #parameters-4
+[11]: #rgbatonumber
 
-[12]: #stringtorgbaobject
+[12]: #parameters-3
 
-[13]: #parameters-5
+[13]: #examples-3
 
-[14]: #rgbdistance
+[14]: #stringtorgbanumber
 
-[15]: #parameters-6
+[15]: #parameters-4
 
-[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[16]: #examples-4
 
-[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[17]: #stringtorgbaobject
 
-[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[18]: #parameters-5
+
+[19]: #examples-5
+
+[20]: #stringtorgbaobject-1
+
+[21]: #parameters-6
+
+[22]: #examples-6
+
+[23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[24]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[25]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
